@@ -1,0 +1,861 @@
+Writing mesh-generation log to OrkneysAdjoint-v0.log
+[[1mqmesh[0m] [1;37mINFO[0m: This is qmesh, version 1.0.2 (git sha key: 2b8dedeabca736f73d8b3990b614bad76101d8e3)
+[[1mqmesh[0m] [1;34mDEBUG[0m: Looking for QGIS at installation path /usr
+[[1mqmesh[0m] [1;37mINFO[0m: Found QGIS version 2.14.18-Essen
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file outlines/outlines_PF.shp
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Locating line-loops...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found loop-ID attribute in line-shapefile as field with index 2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found physical ID attribute in line-shapefile as field with index 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m:     Making lines contiguous...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: 12 lines in total.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 10 lines that are parts of contiguous segments.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 2 lines not connected to other lines.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: Connecting disconnected lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Checking for intersecting lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 7 line-loops in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Building polygons...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of outer boundaries found: 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of meshed-areas removed: 0
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of non-meshed areas removed: 0
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas to be meshed: 1
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas not to be meshed: 6
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest meshed area: 473835348.861 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest meshed area: 473835348.861 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest not-meshed area: 11325302.5189 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest not-meshed area: 26463.2244843 m**2
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/mainland.shp
+FILE: resolution_outlines/mainland.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 1500.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 1500.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:39:36.064936.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/islands/big_islands.shp
+FILE: resolution_outlines/islands/big_islands.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 300.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 300.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:39:42.699812.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/OuterSound/outer_sound_refinement.shp
+FILE: refinement_regions/OuterSound/outer_sound_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:39:48.248375.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/InnerSound/inner_sound_refinement.shp
+FILE: refinement_regions/InnerSound/inner_sound_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:39:52.606383.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/InnerSound/Meygen_lease_area_polygons.shp
+FILE: refinement_regions/InnerSound/Meygen_lease_area_polygons.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 50.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 50.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:39:56.893290.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Brims/brims_refinement.shp
+FILE: refinement_regions/Brims/brims_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:00.983500.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/PF/swona_eddies.shp
+FILE: refinement_regions/PF/swona_eddies.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:05.644108.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/PF/stroma_eddies.shp
+FILE: refinement_regions/PF/stroma_eddies.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:09.736216.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/PF/PF_islands.shp
+FILE: resolution_outlines/PF/PF_islands.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.4 to -2.85, y=58.55 to 58.85 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 30.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 1.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 30.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  1100 points along first direction, extending from -3.4 to -2.84958263773.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along second direction, extending from 58.55 to 58.85.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:14.001474.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: -3.4 to -2.84958263773,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 58.55 to 58.85
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing NetCDF file PFmesh.nc
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting line geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up line multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 12 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 12 single-part features in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting polygon geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up polygon multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 1 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 1 single-part features in total.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing point dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 3488 points - extracted from lines.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 3476 points after removing duplicates.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing lineID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 1 polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 7 ring(s) in polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing pointID-ringID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-lineID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Making ringID-lineID dictionary describe rings in a contiguous fashion...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing surfaceID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for lines...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for surfaces...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing Geometry object...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Initialising geometry...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Writing file PFmesh.geo
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done writing PFmesh.geo
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Converting raster to target reference coordinate system: WGS 84 / UTM zone 30N
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 476720.030733 to 508754.306711,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6489946.01972 to 6523418.57809
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Regridding mesh metric from 599x1099 grid to new grid aligned with the CRS, size 1099x599, withspatial extent [476720.030733,508754.306711]x[6489946.01972,6523418.57809]
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 476720.030733 to 508754.306711,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6489946.01972 to 6523418.57809
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing file PFmesh.fld
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Done writing file PFmesh.fld
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file outlines/outlines_FoW.shp
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Locating line-loops...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found loop-ID attribute in line-shapefile as field with index 2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found physical ID attribute in line-shapefile as field with index 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m:     Making lines contiguous...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: 14 lines in total.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 14 lines that are parts of contiguous segments.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 0 lines not connected to other lines.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: Connecting disconnected lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Checking for intersecting lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 14 line-loops in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Building polygons...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of outer boundaries found: 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of meshed-areas removed: 0
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of non-meshed areas removed: 0
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas to be meshed: 1
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas not to be meshed: 13
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest meshed area: 194573742.066 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest meshed area: 194573742.066 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest not-meshed area: 6136444.97742 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest not-meshed area: 9787.78361903 m**2
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/islands/big_islands.shp
+FILE: resolution_outlines/islands/big_islands.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 300.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 300.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:28.666097.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/FoW/FoW.shp
+FILE: resolution_outlines/FoW/FoW.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 1.0 degrees
+  Buffer zone: 0.003 degrees
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:30.975900.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/FoW/FoW_refinement.shp
+FILE: refinement_regions/FoW/FoW_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:33.236188.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Westray/westray_refinement.shp
+FILE: refinement_regions/Westray/westray_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:35.520540.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/FoW/turbine_deployment_area_FoW.shp
+FILE: refinement_regions/FoW/turbine_deployment_area_FoW.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:38.829307.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/StronsayFirth/stronsay_firth_refinement.shp
+FILE: refinement_regions/StronsayFirth/stronsay_firth_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:41.340449.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Shapinsay/shapinsay_north_refinement.shp
+FILE: refinement_regions/Shapinsay/shapinsay_north_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:43.608968.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Westray/von_karman_street.shp
+FILE: refinement_regions/Westray/von_karman_street.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:46.176764.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/FoW/GreenHolms.shp
+FILE: resolution_outlines/FoW/GreenHolms.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-3.02 to -2.61, y=58.94 to 59.35 degrees
+  Raster resolution: 600 x 600 pixels
+  Minimum resolution: 30.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 30.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  600 points along first direction, extending from -3.02 to -2.61.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  601 points along second direction, extending from 58.94 to 59.3506844741.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:48.459792.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: -3.02 to -2.61,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 58.94 to 59.3506844741
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing NetCDF file FoWmesh.nc
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting line geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up line multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 14 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 14 single-part features in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting polygon geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up polygon multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 1 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 1 single-part features in total.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing point dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 2291 points - extracted from lines.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 2276 points after removing duplicates.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing lineID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 1 polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 14 ring(s) in polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing pointID-ringID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-lineID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Making ringID-lineID dictionary describe rings in a contiguous fashion...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing surfaceID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for lines...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for surfaces...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing Geometry object...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Initialising geometry...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Writing file FoWmesh.geo
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done writing FoWmesh.geo
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Converting raster to target reference coordinate system: WGS 84 / UTM zone 30N
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 498848.955444 to 522445.288081,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6533371.01461 to 6579166.93221
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Regridding mesh metric from 600x599 grid to new grid aligned with the CRS, size 599x600, withspatial extent [498848.955444,522445.288081]x[6533371.01461,6579166.93221]
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 498848.955444 to 522445.288081,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6533371.01461 to 6579166.93221
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing file FoWmesh.fld
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Done writing file FoWmesh.fld
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file outlines/Outlines_no_small.shp
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Locating line-loops...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found loop-ID attribute in line-shapefile as field with index 2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:     Found physical ID attribute in line-shapefile as field with index 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m:     Making lines contiguous...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: 56 lines in total.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 55 lines that are parts of contiguous segments.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 1 lines not connected to other lines.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Making contiguous lines: Connecting disconnected lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Checking for intersecting lines...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Found 54 line-loops in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Building polygons...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of outer boundaries found: 1
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of meshed-areas removed: 0
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Number of non-meshed areas removed: 0
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas to be meshed: 1
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Number of areas not to be meshed: 53
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest meshed area: 30520617620.4 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest meshed area: 30520617620.4 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Largest not-meshed area: 583138107.266 m**2
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m: Smallest not-meshed area: 9787.78361903 m**2
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/mainland.shp
+FILE: resolution_outlines/mainland.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 1500.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 1500.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:40:57.700458.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/islands/big_islands.shp
+FILE: resolution_outlines/islands/big_islands.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 300.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 300.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:01.595168.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Westray/westray_refinement.shp
+FILE: refinement_regions/Westray/westray_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:05.560366.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/FoW/FoW.shp
+FILE: resolution_outlines/FoW/FoW.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 0.5 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:10.644571.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/FoW/FoW_refinement.shp
+FILE: refinement_regions/FoW/FoW_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 100.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 100.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:14.736657.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/StronsayFirth/stronsay_firth_refinement.shp
+FILE: refinement_regions/StronsayFirth/stronsay_firth_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:18.617034.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Shapinsay/shapinsay_north_refinement.shp
+FILE: refinement_regions/Shapinsay/shapinsay_north_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 3.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:22.535409.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/OuterSound/outer_sound_refinement.shp
+FILE: refinement_regions/OuterSound/outer_sound_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:26.567576.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/InnerSound/inner_sound_refinement.shp
+FILE: refinement_regions/InnerSound/inner_sound_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:30.603229.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/Brims/brims_refinement.shp
+FILE: refinement_regions/Brims/brims_refinement.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:34.616126.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/PF/swona_eddies.shp
+FILE: refinement_regions/PF/swona_eddies.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:38.538627.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file refinement_regions/PF/stroma_eddies.shp
+FILE: refinement_regions/PF/stroma_eddies.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 150.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 5.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 150.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:42.573647.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Reading file resolution_outlines/PF/PF_islands.shp
+FILE: resolution_outlines/PF/PF_islands.shp
+  Input shapefile CRS: WGS 84 (EPSG:4326; degrees)
+  Target mesh CRS: WGS 84 / UTM zone 30N (EPSG:32630; metres)
+  Raster bounds: x=-4.7 to -1.1, y=57.0 to 60.6 degrees
+  Raster resolution: 800 x 800 pixels
+  Minimum resolution: 30.0 m
+  Maximum resolution: 20000.0 m
+  Gradation distance: 1.0 degrees
+  Buffer zone: 0.0 degrees (default)
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Calculating linear gradation from shapes
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m:     Gradating from 30.0 to 20000.0
+[[1mqmesh.raster[0m] [1;37mINFO[0m: The distance function raster grid must have square cells (GDAL requirement).
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  This is not possible with the specified raster-resolution.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  Changed raster extents and resolution to:
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  800 points along first direction, extending from -4.7 to -1.1.
+[[1mqmesh.raster[0m] [1;37mINFO[0m:  801 points along second direction, extending from 57.0 to 60.604505632.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file /tmp/shapes2026-10-10T19:41:46.778415.shp ...
+[[1mqmesh.mesh.gdal_proximity[0m] [1;33mWARNING[0m: Pixels not square, distances will be inaccurate.
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: -4.7 to -1.1,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 57.0 to 60.604505632
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing NetCDF file overall_domain.nc
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting line geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up line multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 56 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 56 single-part features in total.
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Converting polygon geometry to target reference coordinate system: EPSG:32630...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:         Breaking up polygon multi-features...
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 1 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Found 0 multi-part features,
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:                 decomposed into 0 single-part features.
+[[1mqmesh.vector[0m] [1;34mDEBUG[0m:             Now 1 single-part features in total.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing point dictionaries...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 30481 points - extracted from lines.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 30425 points after removing duplicates.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing lineID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 1 polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Found 54 ring(s) in polygons.
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing pointID-ringID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing ringID-lineID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Making ringID-lineID dictionary describe rings in a contiguous fashion...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing surfaceID-pointID dictionary...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for lines...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m:         Constructing Physical IDs dictionaries for surfaces...
+[[1mqmesh.mesh[0m] [1;34mDEBUG[0m: Constructing Geometry object...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Initialising geometry...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Writing file overall_domain.geo
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Done writing overall_domain.geo
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Converting raster to target reference coordinate system: WGS 84 / UTM zone 30N
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 396734.766071 to 615412.370228,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6317385.92095 to 6720239.68663
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Regridding mesh metric from 800x799 grid to new grid aligned with the CRS, size 799x800, withspatial extent [396734.766071,615412.370228]x[6317385.92095,6720239.68663]
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: Grid bounds: 396734.766071 to 615412.370228,
+[[1mqmesh.raster[0m] [1;34mDEBUG[0m: 6317385.92095 to 6720239.68663
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Writing file overall_domain.fld
+[[1mqmesh.raster[0m] [1;37mINFO[0m: Done writing file overall_domain.fld
+Running command: gmsh -2 OrkneysAdjoint-v0.geo -o OrkneysAdjoint-v0.msh
+Info    : Running 'gmsh -2 OrkneysAdjoint-v0.geo -o OrkneysAdjoint-v0.msh' [Gmsh 3.0.4, 1 node, max. 1 thread]
+Info    : Started on Sat Oct 10 19:42:05 2026
+Info    : Reading 'OrkneysAdjoint-v0.geo'...
+Info    : Done reading 'OrkneysAdjoint-v0.geo'
+Info    : Finalized high order topology of periodic connections
+Info    : Meshing 1D...
+Info    : Meshing curve 0 (Nurb)
+Info    : Meshing curve 1 (Nurb)
+Info    : Meshing curve 2 (Nurb)
+Info    : Meshing curve 3 (Nurb)
+Info    : Meshing curve 4 (Nurb)
+Info    : Meshing curve 5 (Nurb)
+Info    : Meshing curve 6 (Nurb)
+Info    : Meshing curve 7 (Nurb)
+Info    : Meshing curve 8 (Nurb)
+Info    : Meshing curve 9 (Nurb)
+Info    : Meshing curve 10 (Nurb)
+Info    : Meshing curve 11 (Nurb)
+Info    : Meshing curve 12 (Nurb)
+Info    : Meshing curve 13 (Nurb)
+Info    : Meshing curve 14 (Nurb)
+Info    : Meshing curve 15 (Nurb)
+Info    : Meshing curve 16 (Nurb)
+Info    : Meshing curve 17 (Nurb)
+Info    : Meshing curve 18 (Nurb)
+Info    : Meshing curve 19 (Nurb)
+Info    : Meshing curve 20 (Nurb)
+Info    : Meshing curve 21 (Nurb)
+Info    : Meshing curve 22 (Nurb)
+Info    : Meshing curve 23 (Nurb)
+Info    : Meshing curve 24 (Nurb)
+Info    : Meshing curve 25 (Nurb)
+Info    : Meshing curve 26 (Nurb)
+Info    : Meshing curve 27 (Nurb)
+Info    : Meshing curve 28 (Nurb)
+Info    : Meshing curve 29 (Nurb)
+Info    : Meshing curve 30 (Nurb)
+Info    : Meshing curve 31 (Nurb)
+Info    : Meshing curve 32 (Nurb)
+Info    : Meshing curve 33 (Nurb)
+Info    : Meshing curve 34 (Nurb)
+Info    : Meshing curve 35 (Nurb)
+Info    : Meshing curve 36 (Nurb)
+Info    : Meshing curve 37 (Nurb)
+Info    : Meshing curve 38 (Nurb)
+Info    : Meshing curve 39 (Nurb)
+Info    : Meshing curve 40 (Nurb)
+Info    : Meshing curve 41 (Nurb)
+Info    : Meshing curve 42 (Nurb)
+Info    : Meshing curve 43 (Nurb)
+Info    : Meshing curve 44 (Nurb)
+Info    : Meshing curve 45 (Nurb)
+Info    : Meshing curve 46 (Nurb)
+Info    : Meshing curve 47 (Nurb)
+Info    : Meshing curve 48 (Nurb)
+Info    : Meshing curve 49 (Nurb)
+Info    : Meshing curve 50 (Nurb)
+Info    : Meshing curve 51 (Nurb)
+Info    : Meshing curve 52 (Nurb)
+Info    : Meshing curve 53 (Nurb)
+Info    : Meshing curve 54 (Nurb)
+Info    : Meshing curve 55 (Nurb)
+Info    : Done meshing 1D (13.3378 s)
+Info    : Meshing 2D...
+Info    : Meshing surface 0 (Plane, Delaunay)
+Info    : Done meshing 2D (2.11698 s)
+Info    : 103437 vertices 176665 elements
+Info    : Writing 'OrkneysAdjoint-v0.msh'...
+Info    : Done writing 'OrkneysAdjoint-v0.msh'
+Info    : Stopped on Sat Oct 10 19:42:21 2026
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Reading mesh from OrkneysAdjoint-v0.msh
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Read in 73068 nodes.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Read in 4801 2-node edges on boundaries.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Read in 141439 3-node triangles.
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Removing duplicate edge definitions...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Found 424317 edges...
+[[1mqmesh.mesh[0m] [1;37mINFO[0m: Creating line-shapefile OrkneysAdjoint-v0.shp
+[[1mqmesh.vector[0m] [1;37mINFO[0m: Writing file OrkneysAdjoint-v0.shp ...
