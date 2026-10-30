@@ -1,15 +1,15 @@
 """
-Mesh generation for Pentland Firth/Orkneys
+Reusable qmesh and Gmsh mesh-generation workflow.
 
-Shapefiles folder contains all the necessary files from qGIS to describe the geometry we wish to model.
-The generate_mesh function calls qmesh; we feed into the necessary inputs based on the mesh characteristics
-as described below.
-If qmesh is not installed, this can be run in a qmeshcontainer (i.e. docker).
+Scenario-specific domains and run settings are read from input_params.py.
 """
 
 import sys
 import subprocess
 import traceback
+import re
+
+from qmesh_tools import get_qmesh_module
 
 
 class Tee(object):
@@ -28,25 +28,17 @@ class Tee(object):
             stream.flush()
 
 
-def get_qmesh_module(version):
-    """
-    Selects the appropriate qmesh module based on version, 'qmesh3' or 'qmeshcontainers'.
-    """
-    if version == 'qmesh3':
-        import qmesh3 as qmesh
-    else:
-        import qmesh
-        qmesh.initialise()  # Initializing qgis API (only necessary when using qmeshcontainer)
-    return qmesh
-
-
-def insert_fld_to_geo(output_file_name, geo_file, inner_domains):
+def insert_fld_to_geo(output_file_name, geo_file, inner_domains,
+                      nested_raster_outside_value):
     """
     Appends one or more .fld files to the main .geo file, to include nested high-resolution domains.
 
     :param output_file_name: Name of the new .geo file to write (without extension).
     :param geo_file: Base .geo file name (without extension) for the overall domain.
     :param inner_domains: List of MeshConfig objects representing finer resolution domains.
+    :param nested_raster_outside_value: Gmsh mesh size to use outside a nested
+        raster's extent. This should exceed all desired mesh sizes so the
+        combined minimum field ignores the nested raster outside its area.
     :return: None
     """
     with open(geo_file + ".geo", "r") as f_in:
@@ -67,7 +59,9 @@ def insert_fld_to_geo(output_file_name, geo_file, inner_domains):
                 "Field[{0}] = Structured;\n".format(base_id),
                 'Field[{0}].FileName = "{1}.fld";\n'.format(base_id, fld_file),
                 "Field[{0}].TextFormat = 1;\n".format(base_id),
-                "Field[{0}].OutsideValue = 1000000;\n".format(base_id),
+                "Field[{0}].OutsideValue = {1};\n".format(
+                    base_id, nested_raster_outside_value
+                ),
                 "Field[{0}].SetOutsideValue = 1;\n".format(base_id),
                 "Field[{1}] = MathEval;\n".format(base_id, base_id + 1),
                 'Field[{1}].F = "F{0}";\n'.format(base_id, base_id + 1),
@@ -88,32 +82,60 @@ def insert_fld_to_geo(output_file_name, geo_file, inner_domains):
 
 
 def get_coordinate_unit(coordinate_system):
-    """Return the unit used by a qmesh/QGIS coordinate reference system."""
-    try:
-        is_geographic = coordinate_system.isGeographic()
-    except AttributeError:
-        is_geographic = coordinate_system.geographicFlag()
-    return "degrees" if is_geographic else "metres"
+    """Return the axis unit declared by a QGIS coordinate reference system."""
+    unit_names = re.findall(
+        r'(?:UNIT|LENGTHUNIT|ANGLEUNIT)\s*\[\s*"([^"]+)"',
+        coordinate_system.toWkt(),
+    )
+    if not unit_names:
+        raise ValueError(
+            "Could not determine the coordinate unit for CRS {}".format(
+                coordinate_system.authid()
+            )
+        )
+
+    unit_name = unit_names[-1]
+    unit_names = {
+        "degree": "degrees",
+        "metre": "metres",
+        "meter": "metres",
+    }
+    return unit_names.get(unit_name.lower(), unit_name)
 
 
-def describe_target_coordinate_system(coordinate_system):
+def get_coordinate_unit_from_string(coordinate_system):
+    """Return the declared axis unit for a target CRS string."""
+    from qgis.core import QgsCoordinateReferenceSystem
+
+    target_crs = QgsCoordinateReferenceSystem()
+    if not target_crs.createFromString(coordinate_system):
+        raise ValueError(
+            "Could not create a coordinate reference system from {!r}".format(
+                coordinate_system
+            )
+        )
+    return get_coordinate_unit(target_crs)
+
+
+def describe_target_coordinate_system(coordinate_system, coordinate_unit):
     """Describe common WGS 84 UTM coordinate systems with their units."""
     epsg_prefix = "EPSG:"
     if coordinate_system.upper().startswith(epsg_prefix):
         epsg_code = coordinate_system[len(epsg_prefix):]
         if epsg_code.isdigit() and 32601 <= int(epsg_code) <= 32660:
-            return "WGS 84 / UTM zone {}N ({}; metres)".format(
-                int(epsg_code) - 32600, coordinate_system
+            return "WGS 84 / UTM zone {}N ({}; {})".format(
+                int(epsg_code) - 32600, coordinate_system, coordinate_unit
             )
         if epsg_code.isdigit() and 32701 <= int(epsg_code) <= 32760:
-            return "WGS 84 / UTM zone {}S ({}; metres)".format(
-                int(epsg_code) - 32700, coordinate_system
+            return "WGS 84 / UTM zone {}S ({}; {})".format(
+                int(epsg_code) - 32700, coordinate_system, coordinate_unit
             )
-    return coordinate_system
+    return "{} ({})".format(coordinate_system, coordinate_unit)
 
 
 def print_resolution_entry(resolution_entry, raster_bounds, raster_resolution,
-                           source_coordinate_system, target_coordinate_system):
+                           source_coordinate_system, target_coordinate_system,
+                           target_coordinate_unit):
     """Print the configuration used to create one mesh-resolution raster."""
     gradation_params = resolution_entry["gradation_params"]
     min_resolution = gradation_params[0]
@@ -129,14 +151,20 @@ def print_resolution_entry(resolution_entry, raster_bounds, raster_resolution,
             coordinate_unit,
         ),
         "  Target mesh CRS: {}".format(
-            describe_target_coordinate_system(target_coordinate_system)
+            describe_target_coordinate_system(
+                target_coordinate_system, target_coordinate_unit
+            )
         ),
         "  Raster bounds: x={} to {}, y={} to {} {}".format(
             *(tuple(raster_bounds) + (coordinate_unit,))
         ),
         "  Raster resolution: {} x {} pixels".format(*raster_resolution),
-        "  Minimum resolution: {} m".format(min_resolution),
-        "  Maximum resolution: {} m".format(max_resolution),
+        "  Minimum resolution: {} {}".format(
+            min_resolution, target_coordinate_unit
+        ),
+        "  Maximum resolution: {} {}".format(
+            max_resolution, target_coordinate_unit
+        ),
         "  Gradation distance: {} {}".format(gradation_distance, coordinate_unit),
         "  Buffer zone: {} {}{}".format(
             buffer_zone,
@@ -165,7 +193,7 @@ def run_gmsh(name):
         raise RuntimeError("gmsh failed while generating {}.msh".format(name))
 
 
-def generate_geo_fld(config, coordinate_system='EPSG:32630'):
+def generate_geo_fld(config, generation_config):
     """
     Generating .geo .fld files. Configuration file should have following inputs:
 
@@ -177,14 +205,24 @@ def generate_geo_fld(config, coordinate_system='EPSG:32630'):
         - raster_resolution: Tuple defining raster resolution (pixels)
         - raster_file: (Optional) path to an existing raster .nc file (used if skipping raster generation)
         - meshed_plots: (Optional) list of shapefiles defining subregions to mesh
-    :param coordinate_system: The coordinate system (default: 'EPSG:32630').
+    :param generation_config: Settings shared by the mesh-generation run.
     :return: None
     """
+    coordinate_system = generation_config.target_coordinate_system
+    target_coordinate_unit = get_coordinate_unit_from_string(coordinate_system)
+
     # Reading outline, and converting to polylines and polygon shapes to communicate with qGIS
     boundaries = qmesh.vector.Shapes()
     boundaries.fromFile(config.outline)
-    loopShapes = qmesh.vector.identifyLoops(boundaries, isGlobal=False, defaultPhysID=1000, fixOpenLoops=True)
-    polygonShapes = qmesh.vector.identifyPolygons(loopShapes, meshedAreaPhysID=1)
+    loopShapes = qmesh.vector.identifyLoops(
+        boundaries,
+        isGlobal=generation_config.is_global,
+        defaultPhysID=generation_config.boundary_physical_id,
+        fixOpenLoops=generation_config.fix_open_loops,
+    )
+    polygonShapes = qmesh.vector.identifyPolygons(
+        loopShapes, meshedAreaPhysID=generation_config.area_physical_id
+    )
 
     # Create raster for mesh gradation for increased resolution around regions of interest highlighted by shapefiles
     # Iteratively create these rasters and store the associated qmesh objects in a list
@@ -199,6 +237,7 @@ def generate_geo_fld(config, coordinate_system='EPSG:32630'):
                 config.raster_resolution,
                 boundary_shapefiles.getCoordRefSystem(),
                 coordinate_system,
+                target_coordinate_unit,
             )
             gradation.append(qmesh.raster.meshMetricTools.gradationToShapes())
             gradation[-1].setShapes(boundary_shapefiles)
@@ -229,8 +268,13 @@ def generate_geo_fld(config, coordinate_system='EPSG:32630'):
             print('Meshed plot ID: {}'.format(config.meshed_plots_ids[i]))
             plot = qmesh.vector.Shapes()
             plot.fromFile(config.meshed_plots[i])
-            plot_loops = qmesh.vector.identifyLoops(plot,
-                                                    fixOpenLoops=True, extraPointsPerVertex=10)
+            plot_loops = qmesh.vector.identifyLoops(
+                plot,
+                fixOpenLoops=generation_config.fix_open_loops,
+                extraPointsPerVertex=(
+                    generation_config.meshed_plot_extra_points_per_vertex
+                ),
+            )
             plot_polygon = qmesh.vector.identifyPolygons(plot_loops, meshedAreaPhysID=config.meshed_plots_ids[i])
             loopShapes, polygonShapes = qmesh.vector.insertRegions(loopShapes, polygonShapes, plot_loops, plot_polygon)
 
@@ -241,7 +285,10 @@ def generate_geo_fld(config, coordinate_system='EPSG:32630'):
     domain.setGeometry(loopShapes, polygonShapes)
 
     # Specify coordinate system
-    domain.setTargetCoordRefSystem(coordinate_system, fldFillValue=1000.0)
+    domain.setTargetCoordRefSystem(
+        coordinate_system,
+        fldFillValue=generation_config.raster_reprojection_fill_value,
+    )
 
     # Specify gradation metric for gmsh
     domain.setMeshMetricField(meshMetricRaster)
@@ -250,33 +297,29 @@ def generate_geo_fld(config, coordinate_system='EPSG:32630'):
     domain.writeGmshFiles(config.name + '.geo', config.name + '.fld')
 
 
-def convert_mesh(name):
+def convert_mesh(name, coordinate_system):
     """
     Generates a shapefile based on the mesh. Useful for visualisation in QGIS
     :param name: Name of mesh file that needs to be converted to *.shp
     :return: None
     """
     mesh = qmesh.mesh.Mesh()
-    mesh.readGmsh(name + '.msh', 'EPSG:32630')
+    mesh.readGmsh(name + '.msh', coordinate_system)
     mesh.writeShapefile(name)
 
 
 if __name__ == '__main__':
-    """
-    In this example we have put together the files for the Orkneys, and we call on these to the function
-    """
     import os
-    from input_params import overall_domain, inner_domains, meshname
+    from input_params import generation_config, inner_domains, overall_domain
 
-    # Configuration for mesh generation
-    qmesh_version = 'qmeshcontainers'  # 'qmesh3' or 'qmeshcontainers'
-    new_fld_files = True  # Set to True if need to generate new .fld and .geo files
-    load_existing_raster = False  # Set to True to load files from existing .nc raster (won't generate new ones)
-
-    # Name for new mesh
-    name = meshname
-
-    os.chdir("shapefiles")  # Change working directory to folder that contains input files
+    if not os.path.isdir(generation_config.shapefiles_directory):
+        raise ValueError(
+            "Shapefiles directory does not exist: {}".format(
+                generation_config.shapefiles_directory
+            )
+        )
+    os.chdir(generation_config.shapefiles_directory)
+    name = generation_config.meshname
 
     log_file = open(name + ".log", "w")
     terminal_stdout = sys.stdout
@@ -286,24 +329,29 @@ if __name__ == '__main__':
 
     try:
         sys.stdout.write("Writing mesh-generation log to {}.log\n".format(name))
-        qmesh = get_qmesh_module(qmesh_version)
+        qmesh = get_qmesh_module(generation_config.qmesh_version)
 
-        if new_fld_files:
+        if generation_config.generate_fields:
             for inner in inner_domains:
-                if not load_existing_raster:
+                if not generation_config.reuse_existing_rasters:
                     inner.raster_file = None
-                generate_geo_fld(inner, coordinate_system='EPSG:32630')
-            if not load_existing_raster:
+                generate_geo_fld(inner, generation_config)
+            if not generation_config.reuse_existing_rasters:
                 overall_domain.raster_file = None
-            generate_geo_fld(overall_domain, coordinate_system='EPSG:32630')
+            generate_geo_fld(overall_domain, generation_config)
 
         # Create
-        insert_fld_to_geo(name, overall_domain.name, inner_domains)
+        insert_fld_to_geo(
+            name,
+            overall_domain.name,
+            inner_domains,
+            generation_config.nested_raster_outside_value,
+        )
 
         run_gmsh(name)
 
         # Convert the gmsh *.msh file to a *.shp file for visualisation in qGIS
-        convert_mesh(name)
+        convert_mesh(name, generation_config.target_coordinate_system)
     except BaseException:
         traceback.print_exc(file=log_file)
         log_file.flush()

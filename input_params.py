@@ -38,6 +38,49 @@ class MeshConfig:
         self.meshed_plots = meshed_plots if meshed_plots is not None else []
         self.meshed_plots_ids = meshed_plots_ids if meshed_plots_ids is not None else []
 
+
+class MeshGenerationConfig:
+    """Settings that control how a mesh configuration is generated."""
+    def __init__(self, meshname, shapefiles_directory,
+                 target_coordinate_system, qmesh_version="qmeshcontainers",
+                 generate_fields=True, reuse_existing_rasters=False,
+                 boundary_physical_id=1000, area_physical_id=1,
+                 nested_raster_outside_value=1000000,
+                 raster_reprojection_fill_value=1000.0,
+                 is_global=False, fix_open_loops=True,
+                 meshed_plot_extra_points_per_vertex=10):
+        if qmesh_version not in ("qmesh3", "qmeshcontainers"):
+            raise ValueError(
+                "qmesh_version must be 'qmesh3' or 'qmeshcontainers'"
+            )
+        if not isinstance(generate_fields, bool):
+            raise ValueError("generate_fields must be a boolean")
+        if not isinstance(reuse_existing_rasters, bool):
+            raise ValueError("reuse_existing_rasters must be a boolean")
+        if not isinstance(is_global, bool):
+            raise ValueError("is_global must be a boolean")
+        if not isinstance(fix_open_loops, bool):
+            raise ValueError("fix_open_loops must be a boolean")
+
+        self.meshname = meshname
+        self.shapefiles_directory = shapefiles_directory
+        self.target_coordinate_system = target_coordinate_system
+        self.qmesh_version = qmesh_version
+        self.generate_fields = generate_fields
+        self.reuse_existing_rasters = reuse_existing_rasters
+        self.boundary_physical_id = boundary_physical_id
+        self.area_physical_id = area_physical_id
+        # This Gmsh field value applies outside nested raster extents. It must
+        # be larger than all desired mesh sizes so the Min field ignores it.
+        self.nested_raster_outside_value = nested_raster_outside_value
+        self.raster_reprojection_fill_value = raster_reprojection_fill_value
+        self.is_global = is_global
+        self.fix_open_loops = fix_open_loops
+        self.meshed_plot_extra_points_per_vertex = (
+            meshed_plot_extra_points_per_vertex
+        )
+
+
 RESOLUTION_ENTRIES = {
     "mainland": {
         "shapefile": "resolution_outlines/mainland.shp",
@@ -184,6 +227,21 @@ FoW = MeshConfig(
 )
 
 
-meshname = "OrkneysAdjoint-v0"
 overall_domain = OverallDomain
 inner_domains = [PF, FoW]
+
+generation_config = MeshGenerationConfig(
+    meshname="OrkneysAdjoint-v0",
+    shapefiles_directory="shapefiles",
+    target_coordinate_system="EPSG:32630",
+    qmesh_version="qmeshcontainers",
+    generate_fields=True,
+    reuse_existing_rasters=False,
+    boundary_physical_id=1000,
+    area_physical_id=1,
+    nested_raster_outside_value=1000000,
+    raster_reprojection_fill_value=1000.0,
+    is_global=False,
+    fix_open_loops=True,
+    meshed_plot_extra_points_per_vertex=10,
+)
