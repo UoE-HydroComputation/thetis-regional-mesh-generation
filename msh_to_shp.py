@@ -3,16 +3,7 @@
 import argparse
 import os
 
-
-def get_qmesh_module(version):
-    """Select the appropriate qmesh module."""
-    if version == "qmesh3":
-        import qmesh3 as qmesh
-    else:
-        import qmesh
-
-        qmesh.initialise()
-    return qmesh
+from qmesh_tools import get_qmesh_module
 
 
 def convert_mesh(qmesh, mesh_file, coordinate_system):
